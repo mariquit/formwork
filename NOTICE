@@ -1,0 +1,45 @@
+# Formwork Notices
+
+Formwork was originally created by John Anthony Mariquit.
+Copyright (c) 2026 John Anthony Mariquit.
+
+## Design Craft Guidance
+
+Formwork's design-craft floor — the visitor-mode taxonomy (Persuade / Operate /
+Read / Experience), the anti-pattern rule set and its thresholds, the
+color-strategy vocabulary (Restrained / Committed / Full palette / Drenched),
+and the `.formwork/design-system.md` section structure — is **derived design
+guidance**, adapted from prior art in AI-generated-UI anti-pattern detection:
+
+**Impeccable** — https://impeccable.style — https://github.com/pbakaus/impeccable
+Copyright 2025 Paul Bakaus. Licensed under the
+[Apache License 2.0](https://github.com/pbakaus/impeccable/blob/main/LICENSE).
+
+Impeccable in turn credits Anthropic's
+[frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design)
+skill as its starting point.
+
+### What is and is not shared
+
+No Impeccable code ships in Formwork. `formwork design-lint` is an
+independent Rust implementation: its own CDP client, its own WCAG contrast
+math, its own rule evaluation, and its own static fallback engine. What carries
+over is the *design judgment* — which patterns are worth flagging and at what
+threshold — expressed in our own rule vocabulary and severity model.
+
+Impeccable's detector engine, browser adapters, command surface, scoring
+rubrics, and configuration formats are not used.
+
+## Community Documents
+
+[`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) is adapted from [Contributor Covenant
+2.1](https://www.contributor-covenant.org/version/2/1/code_of_conduct/), released
+under [Creative Commons Attribution 4.0 International](https://github.com/EthicalSource/contributor_covenant/blob/2.1/LICENSE.md).
+Formwork adapted the reporting and moderation instructions. The Contributor
+Covenant credits Mozilla's code of conduct enforcement ladder as inspiration
+for its Community Impact Guidelines.
+
+## Rust Dependencies
+
+Binary release archives include dependency license texts and notices under
+`third-party/`. Those dependencies retain their own license terms.

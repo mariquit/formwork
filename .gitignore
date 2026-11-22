@@ -1,0 +1,41 @@
+# Cargo build artifacts
+/target/
+
+# IDE and Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# OS-specific
+Thumbs.db
+
+# Rust/Cargo
+*.pdb
+.rls/
+.rust-analyzer/
+
+# Development
+.env
+.env.local
+.env.*.local
+
+# Project-specific
+.tokensave
+
+# Local Formwork workspace artifacts and submission scratch.
+.formwork/
+# Keep legacy workspace state out of commits too.
+.vibe/
+reference/
+
+# Substrate index — generated SQLite vector/graph databases, rebuilt on demand.
+.substrate/

@@ -1,0 +1,43 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run test gate
+        run: make test
+      - name: Build release archive
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: make package
+      - name: Verify and smoke-install release archive
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: sh scripts/test-release.sh "target/dist/formwork-${RELEASE_TAG}-linux-x86_64.tar.gz"
+      - name: Publish GitHub release
+        if: ${{ !env.ACT && github.ref_type == 'tag' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: |
+          archive="target/dist/formwork-${RELEASE_TAG}-linux-x86_64.tar.gz"
+          gh release create "$RELEASE_TAG" --verify-tag --generate-notes "$archive" "$archive.sha256"
