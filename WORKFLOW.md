@@ -115,6 +115,4 @@ Passing moves to the next milestone's approval gate or completion. A later task 
 
 Formwork rejects unsupported state protocols without rewriting files or converting approvals. Use the matching binary or a separate workspace. Use `formwork-report` to inspect recorded state without changing it.
 
-If a workspace has `.vibe/state.json` but no Formwork state, Formwork refuses to initialize there. Use the matching `vibe` binary to continue that workflow or start Formwork in a separate workspace. Do not rename `.vibe/` to `.formwork/`: artifact paths are part of verification fingerprints, so renaming does not preserve approvals or evidence. The Formwork installer does not remove old binaries or OpenCode entries, and installing it updates the four shared role prompts.
-
 Obtain user consent before running `formwork rollback`. It reopens design and invalidates test revisions and milestone execution approvals while retaining artifacts and history. Do not edit state to bypass a gate. State holds metadata; artifact and evidence bodies live in separate workspace files.

@@ -38,8 +38,6 @@ sha256sum -c "$bundle.tar.gz.sha256" &&
 
 Both installers put `formwork` and `formwork-report` in `~/.local/bin/` by default and install the matching Formwork agent, four roles, skill, OpenCode V2 plugin, and schemas. They configure Plannotator without assigning role models. Use `PREFIX` or `BINDIR` to change the binary destination; the integration still installs into your home directory. The OpenCode server must be able to find `formwork` on its `PATH`.
 
-**Coming from VIBE?** Use Formwork for new workflows. Keep the matching VIBE binary for existing workspaces; [Formwork does not migrate VIBE state](WORKFLOW.md#recovery).
-
 ## Use Formwork in OpenCode
 
 1. Open your project in OpenCode V2 and select the **Formwork** agent.
